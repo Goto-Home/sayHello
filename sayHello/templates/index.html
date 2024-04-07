@@ -3,12 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Say Hello</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
     </head>
     <body>
-        <img src="../images/sayHello.png">
+        <img src="https://raw.githubusercontent.com/Goto-Home/sayHello/main/sayHello/images/sayHello.png">
         <br>
         <form action="greet" method="post">
-            <p>what's your name?</p>
+            {% for message in get_flashed_messages()%}
+                <p> {{message}} </p>
+            {% endfor %}
             <br>
             <input type="text" name="name_input">
             <br>
